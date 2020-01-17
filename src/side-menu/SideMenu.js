@@ -9,9 +9,9 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 
 const styles = () => ({
 	sideMenu: {
-		width: '8%',
-		'@media (max-width:800px)': {
-			width: '20vw'
+		width: '20vw',
+		'@media (min-width:800px)': {
+			width: '8%',
 		},
 		fontSize: 14,
 		fontWeight: '500',
@@ -22,12 +22,12 @@ const styles = () => ({
 		cursor: 'pointer',
 	},
 	sideMenuOpenned: {
-		width: '23%',
-		'@media (max-width:800px)': {
-			width: '60vw',
-			height: '100vh',
-			position: 'absolute',
-			zIndex: 1,
+		width: '60vw',
+		height: '100vh',
+		position: 'absolute',
+		zIndex: 1,
+		'@media (min-width:800px)': {
+			width: '23%',
 		},
 		cursor: 'unset',
 	},
