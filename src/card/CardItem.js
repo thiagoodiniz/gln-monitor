@@ -20,12 +20,12 @@ const useStyles = makeStyles({
 		justifyContent: 'space-between',
 	},
 	title: {
-		fontSize: 12,
+		fontSize: 11,
 		color: '#acacac',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'space-between',
-		wordBreak: 'break-all',
+		wordBreak: 'word-break',
 	},
 	settingsButton: {
 		color: '#9fd1fd', 
@@ -38,16 +38,17 @@ const useStyles = makeStyles({
 	cardContainer: {
 	},
 	cardContent: {
-		marginBottom: '2vh',
+		marginBottom: '0.5vh',
 		display: 'flex',
-		justifyContent: 'space-around',
+		// justifyContent: 'space-around',
 	},
 	cardContentTitle:{
-		fontSize: '2.5rem',
+		fontSize: '2rem',
 		fontWeight: 'bold',
+		textAlign: 'start',
 	},
 	cardContentSubTitle:{
-		fontSize: '.8rem',
+		fontSize: '0.8rem',
 	},
 	footer: {
 		display: 'flex',
@@ -67,7 +68,7 @@ const useStyles = makeStyles({
 });
 
 
-export const CardItem = () => {
+export const CardItem = (props) => {
 		const classes = useStyles();
 
 		return(
@@ -75,7 +76,7 @@ export const CardItem = () => {
 
 				<div className={classes.cardContainer}>
 					<Typography className={classes.title} color="textSecondary" gutterBottom>
-						<span>Word of the Day</span>
+						<span>{props.title}</span>
 						<span className={classes.settingsButton}>
 							<FontAwesomeIcon icon={faCog} size="sm" />
 						</span>
@@ -84,15 +85,15 @@ export const CardItem = () => {
 					<div className={classes.cardContent}>
 						<div style={{textAlign: 'center'}}>
 							<Typography className={classes.cardContentTitle} variant="h5" component="h2">
-								425
+								Online
 							</Typography>
 
-							<Typography className={classes.cardContentSubTitle} variant="h5" color="textSecondary">
+							{/* <Typography className={classes.cardContentSubTitle} variant="h5" color="textSecondary">
 								Inbound				
-							</Typography>
+							</Typography> */}
 						</div>
 
-						<div style={{textAlign: 'center'}}>
+						{/* <div style={{textAlign: 'center'}}>
 							<Typography className={classes.cardContentTitle} variant="h5" component="h2">
 								425
 							</Typography>
@@ -100,7 +101,7 @@ export const CardItem = () => {
 							<Typography className={classes.cardContentSubTitle} variant="h5" color="textSecondary">
 								Inbound				
 							</Typography>
-						</div>
+						</div> */}
 					</div>
 				</div>
 
