@@ -10,6 +10,9 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 const styles = () => ({
 	sideMenu: {
 		width: '8%',
+		'@media (max-width:800px)': {
+			width: '20vw'
+		},
 		fontSize: 14,
 		fontWeight: '500',
 		padding: '3vh 0',
@@ -20,6 +23,12 @@ const styles = () => ({
 	},
 	sideMenuOpenned: {
 		width: '23%',
+		'@media (max-width:800px)': {
+			width: '60vw',
+			height: '100vh',
+			position: 'absolute',
+			zIndex: 1,
+		},
 		cursor: 'unset',
 	},
 	sideMenuTop: {
@@ -42,6 +51,16 @@ const styles = () => ({
 		alignItems: 'center', 
 		justifyContent: 'space-between', 
 		fontSize: '12px',
+	},
+	mobileOverlay: {
+		'@media (max-width:800px)': {
+			position: 'fixed',
+			width: '100vw',
+			height: '100vh',
+			backgroundColor: 'rgba(0,0,0,.5)',
+			top: '0',
+			left: '60vw',
+		}
 	}
 });
 
@@ -65,6 +84,7 @@ class SideMenu extends Component {
 
 		return(
 			<div className={`${classes.sideMenu} ${this.state.isMenuOpenned ? classes.sideMenuOpenned : ''}`} onClick={openMenu}>
+
 				<div className={classes.sideMenuTop}>
 					<span >GLN</span>
 
@@ -77,7 +97,9 @@ class SideMenu extends Component {
 				</div>
 
 				{!this.state.isMenuOpenned &&
-					<FontAwesomeIcon icon={faTachometerAlt} />
+					<div style={{ marginLeft: '2vw', textAlign: 'start' }}>
+						<FontAwesomeIcon icon={faTachometerAlt} />
+					</div>
 				}
 
 				{this.state.isMenuOpenned &&
@@ -98,6 +120,10 @@ class SideMenu extends Component {
 						)}
 					</List>
 					</div>
+				}
+
+				{this.state.isMenuOpenned &&
+					<div onClick={this.toggleMenu} className={classes.mobileOverlay}></div>
 				}
 
 			</div>
