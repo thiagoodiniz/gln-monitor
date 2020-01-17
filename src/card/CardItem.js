@@ -7,64 +7,64 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const useStyles = makeStyles({
 	card: {
-		width: 255,
-			minHeight: 150,
-			maxHeight: 220,
-			margin: 10,
-			borderRadius: 2,
-			textAlign: 'start',
-			backgroundColor: '#fff',
-			padding: '14px 14px 5px 14px',
-			display: 'flex',
-			flexDirection: 'column',
-			justifyContent: 'space-between',
-		},
-		title: {
-			fontSize: 12,
-			color: '#acacac',
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'space-between',
-			wordBreak: 'break-all',
-		},
-		settingsButton: {
-			color: '#9fd1fd', 
-			alignSelf: 'flex-start', 
-			paddingLeft: '5px',
-			position: 'relative',
-			bottom: '5px',
-			cursor: 'pointer'
-		},
-		cardContainer: {
-		},
-		cardContent: {
-			marginBottom: '2vh',
-			display: 'flex',
-    		justifyContent: 'space-around',
-		},
-		cardContentTitle:{
-			fontSize: '2.5rem',
-			fontWeight: 'bold',
-		},
-		cardContentSubTitle:{
-			fontSize: '.8rem',
-		},
-		footer: {
-			display: 'flex',
-			fontSize: 10,
-			padding: '14px 0 10px 0',
-			justifyContent: 'space-between',
-		},
-		status: {
-			color: 'green',
-			marginRight: '5px'
-		},
-		moreDetails: {
-			cursor: 'pointer',
-			color: '#4fabfc', 
-			fontWeight: 'bold',
-		}
-	});
+		width: 238,
+		minHeight: 150,
+		maxHeight: 220,
+		margin: 10,
+		borderRadius: 2,
+		textAlign: 'start',
+		backgroundColor: '#fff',
+		padding: '14px 14px 5px 14px',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-between',
+	},
+	title: {
+		fontSize: 12,
+		color: '#acacac',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		wordBreak: 'break-all',
+	},
+	settingsButton: {
+		color: '#9fd1fd', 
+		alignSelf: 'flex-start', 
+		paddingLeft: '5px',
+		position: 'relative',
+		bottom: '5px',
+		cursor: 'pointer'
+	},
+	cardContainer: {
+	},
+	cardContent: {
+		marginBottom: '2vh',
+		display: 'flex',
+		justifyContent: 'space-around',
+	},
+	cardContentTitle:{
+		fontSize: '2.5rem',
+		fontWeight: 'bold',
+	},
+	cardContentSubTitle:{
+		fontSize: '.8rem',
+	},
+	footer: {
+		display: 'flex',
+		fontSize: 10,
+		padding: '14px 0 10px 0',
+		justifyContent: 'space-between',
+	},
+	status: {
+		color: 'green',
+		marginRight: '5px'
+	},
+	moreDetails: {
+		cursor: 'pointer',
+		color: '#4fabfc', 
+		fontWeight: 'bold',
+	}
+});
 
 
 export const CardItem = () => {
@@ -76,9 +76,9 @@ export const CardItem = () => {
 				<div className={classes.cardContainer}>
 					<Typography className={classes.title} color="textSecondary" gutterBottom>
 						<span>Word of the Day</span>
-						<a href className={classes.settingsButton}>
+						<span className={classes.settingsButton}>
 							<FontAwesomeIcon icon={faCog} size="sm" />
-						</a>
+						</span>
 					</Typography>
 					
 					<div className={classes.cardContent}>
@@ -87,7 +87,7 @@ export const CardItem = () => {
 								425
 							</Typography>
 
-							<Typography className={classes.cardContentSubTitle} variant="span" color="textSecondary">
+							<Typography className={classes.cardContentSubTitle} variant="h5" color="textSecondary">
 								Inbound				
 							</Typography>
 						</div>
@@ -97,7 +97,7 @@ export const CardItem = () => {
 								425
 							</Typography>
 
-							<Typography className={classes.cardContentSubTitle} variant="span" color="textSecondary">
+							<Typography className={classes.cardContentSubTitle} variant="h5" color="textSecondary">
 								Inbound				
 							</Typography>
 						</div>
@@ -111,13 +111,13 @@ export const CardItem = () => {
 					<div className={classes.footer}>
 						<div>
 							<FontAwesomeIcon icon={faCircle} className={classes.status} size="sm" />
-							<Typography variant="span" color="textSecondary">
+							<Typography variant="inherit" color="textSecondary">
 								last updated 5 min ago		
 							</Typography>
 						</div>
 
 						<div className={classes.moreDetails}>
-							<a href>More Details</a>
+							<span>More Details</span>
 						</div>
 					</div>
 				</div>
