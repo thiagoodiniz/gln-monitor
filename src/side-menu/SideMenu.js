@@ -28,6 +28,9 @@ const styles = () => ({
 		zIndex: 1,
 		'@media (min-width:800px)': {
 			width: '23%',
+			height: 'unset',
+			position: 'unset',
+			zIndex: 'unset',
 		},
 		cursor: 'unset',
 	},
