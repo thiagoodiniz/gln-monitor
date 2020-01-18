@@ -1,0 +1,99 @@
+
+@import '../assets/style/shared-styles.scss';
+
+.side-menu {
+    @media (min-width:800px) {
+        width: 8%;
+    };
+
+    width: 20vw;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 3vh 0;
+    background-color: $primaryBlue;
+    color: #fff;
+    box-shadow: 3px 0 5px 0 rgba(0,0,0,0.3);
+    cursor: pointer;
+
+    &__top {
+        margin: 0 1vw 3vh 2vw;
+		display: flex;
+        justify-content: space-between;
+        
+        &--tachometer-icon {
+            margin-left: 2vw; 
+            text-align: start;
+        }
+    }
+
+    &__list {
+        background-color: #00030f,
+    }
+}
+
+.side-menu-openned {
+    @media (min-width:800px) {
+        width: 23%;
+        height: unset;
+        position: unset;
+        z-index: unset;
+    };
+
+    width: 60vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+    cursor: unset;
+
+    &__top {
+        flex-grow: 1; 
+        display: flex;
+        justify-content: space-between;
+        margin-left: 1vw;
+        align-items: center;
+
+        &--close-icon {
+            cursor: pointer;
+        }
+    }
+}
+
+.side-menu-list {
+    &__subheader.MuiListSubheader-root {
+        color: #fff; 
+		background-color: $secondaryBlue; 
+		display: flex;
+		align-items: center; 
+		justify-content: space-between; 
+        font-size: 12px;
+        
+        &--icon {
+            margin-left: 1vw;
+        }
+    }
+
+    &__item.MuiListItem-root {
+        padding: 1vh 2vw 2vh 3.5vw;
+    }
+    
+    &__item--content {
+        font-size: 10px;
+        font-weight: 300;
+    }
+}
+
+.side-menu-list.MuiList-root {
+    padding-top: 0.5vh; 
+    padding-bottom: 5vh;
+}
+
+.mobile-overlay {
+    @media (max-width:800px) {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,.5);
+        top: 0;
+        left: 60vw;
+    }    
+}

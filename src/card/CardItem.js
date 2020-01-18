@@ -1,106 +1,41 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import './CardItem.scss';
 import Divider from '@material-ui/core/Divider';
-import { makeStyles } from '@material-ui/core/styles';
 import { faCog, faCircle } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-const useStyles = makeStyles({
-	card: {
-		width: 238,
-		minHeight: 150,
-		maxHeight: 220,
-		margin: 10,
-		borderRadius: 2,
-		textAlign: 'start',
-		backgroundColor: '#fff',
-		padding: '14px 14px 5px 14px',
-		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'space-between',
-	},
-	title: {
-		fontSize: 11,
-		color: '#acacac',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'space-between',
-		wordBreak: 'word-break',
-	},
-	settingsButton: {
-		color: '#9fd1fd', 
-		alignSelf: 'flex-start', 
-		paddingLeft: '5px',
-		position: 'relative',
-		bottom: '5px',
-		cursor: 'pointer'
-	},
-	cardContainer: {
-	},
-	cardContent: {
-		marginBottom: '0.5vh',
-		display: 'flex',
-		// justifyContent: 'space-around',
-	},
-	cardContentTitle:{
-		fontSize: '2rem',
-		fontWeight: 'bold',
-		textAlign: 'start',
-	},
-	cardContentSubTitle:{
-		fontSize: '0.8rem',
-	},
-	footer: {
-		display: 'flex',
-		fontSize: 10,
-		padding: '14px 0 10px 0',
-		justifyContent: 'space-between',
-	},
-	status: {
-		color: 'green',
-		marginRight: '5px'
-	},
-	moreDetails: {
-		cursor: 'pointer',
-		color: '#4fabfc', 
-		fontWeight: 'bold',
-	}
-});
-
-
 export const CardItem = (props) => {
-		const classes = useStyles();
 
 		return(
-			<div className={classes.card}>
+			<div className="card">
 
-				<div className={classes.cardContainer}>
-					<Typography className={classes.title} color="textSecondary" gutterBottom>
+				<div className="card__container">
+					<span className="card__container--header card-header" color="textSecondary" gutterBottom>
 						<span>{props.title}</span>
-						<span className={classes.settingsButton}>
+						<span className="card-header__settings-button">
 							<FontAwesomeIcon icon={faCog} size="sm" />
 						</span>
-					</Typography>
+					</span>
 					
-					<div className={classes.cardContent}>
-						<div style={{textAlign: 'center'}}>
-							<Typography className={classes.cardContentTitle} variant="h5" component="h2">
+					<div className="card__container--content card-content">
+						<div className="card-content__item">
+							<h5 className="card-content__item--title">
 								Online
-							</Typography>
+							</h5>
 
-							{/* <Typography className={classes.cardContentSubTitle} variant="h5" color="textSecondary">
+							<span className="card-content__item--subtitle">
 								Inbound				
-							</Typography> */}
+							</span>
 						</div>
 
-						{/* <div style={{textAlign: 'center'}}>
-							<Typography className={classes.cardContentTitle} variant="h5" component="h2">
-								425
-							</Typography>
+						{/* <div className="card-content__item">
+							<h5 className="card-content__item--title">
+								Online
+							</h5>
 
-							<Typography className={classes.cardContentSubTitle} variant="h5" color="textSecondary">
+							<span className="card-content__item--subtitle">
 								Inbound				
-							</Typography>
+							</span>
 						</div> */}
 					</div>
 				</div>
@@ -109,15 +44,15 @@ export const CardItem = (props) => {
 				<div>
 					<Divider variant="middle" />
 
-					<div className={classes.footer}>
+					<div className="card__footer">
 						<div>
-							<FontAwesomeIcon icon={faCircle} className={classes.status} size="sm" />
-							<Typography variant="inherit" color="textSecondary">
+							<FontAwesomeIcon icon={faCircle} className="card__footer--status" size="sm" />
+							<span>
 								last updated 5 min ago		
-							</Typography>
+							</span>
 						</div>
 
-						<div className={classes.moreDetails}>
+						<div className="card__footer--moreDetails">
 							<span>More Details</span>
 						</div>
 					</div>
