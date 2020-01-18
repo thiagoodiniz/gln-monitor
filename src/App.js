@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import Header from './header/Header';
 import CardList from './card/card-list/CardList';
 import SideMenu from './side-menu/SideMenu';
@@ -8,10 +8,10 @@ function App() {
   return (
     <div className="app">
 
-      <div className="app-content">
+      <div className="app__content">
         <SideMenu></SideMenu>
 
-        <div className="app-content-center">
+        <div className="app__content--center">
           <Header></Header>
           <CardList></CardList>
         </div>

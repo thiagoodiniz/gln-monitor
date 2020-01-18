@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './SideMenu.css';
+import './SideMenu.scss';
 import { faTachometerAlt, faBars, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { withStyles } from '@material-ui/core';
