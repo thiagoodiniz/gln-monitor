@@ -1,4 +1,6 @@
 
+@import '../assets/style/shared-styles.scss';
+
 .side-menu {
     @media (min-width:800px) {
         width: 8%;
@@ -8,7 +10,7 @@
     font-size: 14px;
     font-weight: 500;
     padding: 3vh 0;
-    background-color: #001b3e;
+    background-color: $primaryBlue;
     color: #fff;
     box-shadow: 3px 0 5px 0 rgba(0,0,0,0.3);
     cursor: pointer;
@@ -59,7 +61,7 @@
 .side-menu-list {
     &__subheader.MuiListSubheader-root {
         color: #fff; 
-		background-color: #1490fc; 
+		background-color: $secondaryBlue; 
 		display: flex;
 		align-items: center; 
 		justify-content: space-between; 

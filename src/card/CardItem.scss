@@ -1,3 +1,4 @@
+@import '../assets/style/shared-styles.scss';
 
 .card {
     width: 238px;
@@ -43,7 +44,7 @@
 
         &--moreDetails {
             cursor: pointer;
-            color: #4fabfc; 
+            color: $secondaryBlue; 
             font-weight: bold;
         }
     }
@@ -51,7 +52,7 @@
 
 .card-header {
     &__settings-button {
-        color: #9fd1fd; 
+        color: $secondaryBlue; 
 		align-self: flex-start; 
 		padding-left: 5px;
 		position: relative;
