@@ -2,3 +2,12 @@
 
 $primaryBlue: #001b3e;
 $secondaryBlue: #1490fc;
+
+
+// Animations
+@mixin animateWidth($name, $from, $to) {
+    @keyframes #{$name} {
+      0% {width: $from; opacity: 0;}
+      100% {width: $to; opacity: 1;}
+    }
+  }
