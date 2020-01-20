@@ -10,7 +10,7 @@ export const CardItem = (props) => {
 			<div className="card">
 
 				<div className="card__container">
-					<span className="card__container--header card-header" color="textSecondary" gutterBottom>
+					<span className="card__container--header card-header" color="textSecondary">
 						<span>{props.title}</span>
 						<span className="card-header__settings-button">
 							<FontAwesomeIcon icon={faCog} size="sm" />
