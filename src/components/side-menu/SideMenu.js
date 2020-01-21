@@ -5,14 +5,16 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
+import { connect } from 'react-redux';
+import { healthCheck } from '../../core/healthCheck'
 
 class SideMenu extends Component {
-
-	MOCKMENUS = ["Live Cache status (LC10)","Process chain error (RSPC)","Number of objects in CIF (SMQ1/SMQ2)","Number of dumps (ST22)","Process chain execution that exceed time limit (RSPC)","Process chain execution that passed two standard deviation of last x execution (RSPC)","Memory consumption (SM04)","Highest processing time of one job in execution (SM50)","Log space (LC10)"];
 
 	state = {
         isMenuOpenned: false,
 	}
+
+	possibleItems = healthCheck;
 
 	toggleMenu = () => {
         this.setState({ isMenuOpenned: !this.state.isMenuOpenned });
@@ -53,9 +55,9 @@ class SideMenu extends Component {
 								<FontAwesomeIcon icon={faChevronUp} size="sm"/>
 							</ListSubheader>
 
-							{this.MOCKMENUS.map( (menu, index) =>
+							{this.props.healthCheck.apohealthcheck.map((item, index) =>
 								<ListItem key={index} className="side-menu-list__item" button onClick={this.toggleMenu}>
-									<span className="side-menu-list__item--content">{menu}</span>
+									<span className="side-menu-list__item--content">{ this.possibleItems[Object.keys(item)[0]].title }</span>
 								</ListItem>
 							)}
 						</List>
@@ -72,4 +74,8 @@ class SideMenu extends Component {
 
 }
 
-export default SideMenu;
+const mapStateToProps = (state, ownProps) => ({
+    healthCheck: state.healthCheck,
+});
+
+export default connect(mapStateToProps, null)(SideMenu);
