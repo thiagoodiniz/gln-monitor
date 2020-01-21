@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './CardItem.scss';
 import Divider from '@material-ui/core/Divider';
 import { faCog, faCircle } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 
-export const CardItem = (props) => {
+class CardItem extends Component {
 
+	render(){
+		console.log(this.props.cardType)
 		return(
 			<div className="card">
 
 				<div className="card__container">
 					<span className="card__container--header card-header" color="textSecondary">
-						<span>{props.title}</span>
+						<span>{this.props.title}</span>
 						<span className="card-header__settings-button">
 							<FontAwesomeIcon icon={faCog} size="sm" />
 						</span>
@@ -20,12 +23,12 @@ export const CardItem = (props) => {
 					<div className="card__container--content card-content">
 						<div className="card-content__item">
 							<h5 className="card-content__item--title">
-								Online
+								{this.props.content}
 							</h5>
 
-							<span className="card-content__item--subtitle">
+							{/* <span className="card-content__item--subtitle">
 								Inbound				
-							</span>
+							</span> */}
 						</div>
 
 						{/* <div className="card-content__item">
@@ -39,7 +42,6 @@ export const CardItem = (props) => {
 						</div> */}
 					</div>
 				</div>
-
 				
 				<div>
 					<Divider variant="middle" />
@@ -60,4 +62,14 @@ export const CardItem = (props) => {
 
 			</div>
 		);
+
+	}
 }
+
+CardItem.propTypes = {
+	title: PropTypes.string.isRequired,
+	content: PropTypes.string.isRequired,
+	cardType: PropTypes.string.isRequired,
+}
+
+export default CardItem;

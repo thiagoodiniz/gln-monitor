@@ -1,19 +1,33 @@
 import React, {Component} from 'react';
-import {CardItem} from '../CardItem';
+import CardItem from '../CardItem';
 import './CardList.scss';
+import { connect } from 'react-redux';
+import { healthCheck } from '../../../core/healthCheck'
 
 class CardList extends Component {
-    MOCKMENUS = ["Live Cache status (LC10)","Process chain error (RSPC)","Number of objects in CIF (SMQ1/SMQ2)","Number of dumps (ST22)","Process chain execution that exceed time limit (RSPC)","Process chain execution that passed two standard deviation of last x execution (RSPC)","Memory consumption (SM04)","Highest processing time of one job in execution (SM50)","Log space (LC10)"];
+
+    possibleItems = healthCheck;
 
     render() {
         return(
             <div className="card-list">
-               {this.MOCKMENUS.map((menu, index) => 
-                    <CardItem key={index} title={menu}></CardItem>
+               {this.props.healthCheck.apohealthcheck.map((item, index) =>                 
+                    <CardItem 
+                        key= {index} 
+                        title= { this.possibleItems[Object.keys(item)[0]].title } 
+                        content= { Object.values(item)[0]}
+                        cardType= { Object.keys(item)[0]}
+                    >
+                    </CardItem>
                 )}
             </div>
         );
     }
 }
 
-export default CardList;
+const mapStateToProps = (state, ownProps) => ({
+    healthCheck: state.healthCheck,
+});
+
+
+export default connect(mapStateToProps, null)(CardList);

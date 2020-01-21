@@ -76,6 +76,11 @@
             font-weight: 500;
             line-height: 1.235;
             margin: 0;
+            text-transform: lowercase;
+        }
+
+        &--title::first-letter {
+            text-transform: uppercase;
         }
     
         &--subtitle {
