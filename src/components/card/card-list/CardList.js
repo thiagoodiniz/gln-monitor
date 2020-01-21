@@ -8,8 +8,8 @@ class CardList extends Component {
     render() {
         return(
             <div className="card-list">
-               {this.MOCKMENUS.map(menu => 
-                    <CardItem title={menu}></CardItem>
+               {this.MOCKMENUS.map((menu, index) => 
+                    <CardItem key={index} title={menu}></CardItem>
                 )}
             </div>
         );

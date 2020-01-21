@@ -1,0 +1,68 @@
+@import '../../assets/style/shared-styles.scss';
+
+@include animateWidth(slide, 75%, 100%);
+
+.header {
+    background-color: #fff;
+    color: #c6c6c6;
+    height: 8vh;
+    min-height: 40px;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.3);
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &__user {
+        display: flex;
+        align-items: center;
+
+        &--user-name {
+            font-size: 12px;
+            margin-left: 0.5vw;
+            color: #a4a4a4;
+        }
+    }
+
+    &__user.is-searching {
+        display: none;
+
+        @media (min-width:800px) {
+            display: flex;
+        }
+    }
+
+    &__alert.is-searching {
+        display: none;
+
+        @media (min-width:800px) {
+            display: unset;
+        }
+    
+    }
+
+    &__search {
+        display: flex;
+        // flex-grow: 1;/
+
+        &--input-container {
+            @include animateWidth(slide, 75%, 100%);
+
+            width: 100%;
+            margin-left: auto;
+            animation: slide 1s ease;
+        }
+    }
+}
+
+
+.header > div:not(:last-child) {
+    margin-right: 0.5vw;
+}
+
+.header__alert--btn, .header__search--btn {
+    background: unset;
+    outline: none;
+    border: unset;
+    cursor: pointer;
+}
