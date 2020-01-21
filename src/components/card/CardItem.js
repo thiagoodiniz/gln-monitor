@@ -4,6 +4,7 @@ import Divider from '@material-ui/core/Divider';
 import { faCog, faCircle } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class CardItem extends Component {
 
@@ -55,7 +56,9 @@ class CardItem extends Component {
 						</div>
 
 						<div className="card__footer--moreDetails">
-							<span>More Details</span>
+							<Link to={`/detail/${this.props.cardType}`}>
+								<span>More Details</span>
+							</Link>
 						</div>
 					</div>
 				</div>

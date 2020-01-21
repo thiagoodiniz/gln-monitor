@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 import { CircularProgress } from "@material-ui/core";
 import Alert from '@material-ui/lab/Alert';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import Detail from "../detail/Detail";
 
 class Home extends Component {
 
@@ -38,6 +39,7 @@ class Home extends Component {
                                     <Switch>
                                         <Redirect exact from="/" to="/list" />
                                         <Route path="/list" component={ CardList } />
+                                        <Route path="/detail/:cardType" component={ Detail } />
                                     </Switch>
                                 </div>
                             </BrowserRouter>
