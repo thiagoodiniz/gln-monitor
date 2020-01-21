@@ -1,0 +1,57 @@
+@import '../../assets/style/shared-styles.scss';
+
+
+.detail-card {
+    width: 90%;
+    height: 100vh;
+    margin: 20px auto;
+    border-radius: 2px;
+    text-align: start;
+    background-color: #fff;
+
+    &__header {
+        padding: 5vh 5vw 2vh 5vw;
+        display: flex;
+        justify-content: space-between;
+
+        &--item-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &--config {
+            display: flex;
+            align-items: center;
+        }
+
+
+    }
+}
+
+.item-info { 
+    &--content {
+        font-size: 26px;
+        color: black;
+        font-weight: bold;
+    }
+
+    &--title {
+        color: #969696;
+        font-size: 14px;
+    }
+}
+
+.config {
+    &__settings-button {
+        color: $secondaryBlue;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        &--text {
+            font-size: 12px;
+            margin-left: 5px;
+        }
+    }
+
+}
