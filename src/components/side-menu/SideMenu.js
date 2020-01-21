@@ -53,8 +53,8 @@ class SideMenu extends Component {
 								<FontAwesomeIcon icon={faChevronUp} size="sm"/>
 							</ListSubheader>
 
-							{this.MOCKMENUS.map( menu =>
-								<ListItem className="side-menu-list__item" button onClick={this.toggleMenu}>
+							{this.MOCKMENUS.map( (menu, index) =>
+								<ListItem key={index} className="side-menu-list__item" button onClick={this.toggleMenu}>
 									<span className="side-menu-list__item--content">{menu}</span>
 								</ListItem>
 							)}
