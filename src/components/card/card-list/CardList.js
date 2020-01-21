@@ -11,7 +11,9 @@ class CardList extends Component {
     render() {
         return(
             <div className="card-list">
-               {this.props.healthCheck.apohealthcheck.map((item, index) =>                 
+               {this.props.healthCheck.apohealthcheck
+                && this.props.healthCheck.apohealthcheck.length > 0 
+                && this.props.healthCheck.apohealthcheck.map((item, index) =>                 
                     <CardItem 
                         key= {index} 
                         title= { this.possibleItems[Object.keys(item)[0]].title } 

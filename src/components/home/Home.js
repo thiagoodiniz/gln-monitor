@@ -8,6 +8,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { CircularProgress } from "@material-ui/core";
 import Alert from '@material-ui/lab/Alert';
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 class Home extends Component {
 
@@ -15,7 +16,7 @@ class Home extends Component {
         this.props.getHealthCheckData();
     }
 
-    canShowCards = () => {
+    canShowContent = () => {
         const hc = this.props.healthCheck;
         return !hc.loading 
             && !hc.error
@@ -31,11 +32,18 @@ class Home extends Component {
                     <div className="home__content--center">
                         <Header></Header>
 
-                        {this.canShowCards() &&
-                            <CardList></CardList>
+                        {this.canShowContent() &&
+                            <BrowserRouter>
+                                <div>
+                                    <Switch>
+                                        <Redirect exact from="/" to="/list" />
+                                        <Route path="/list" component={ CardList } />
+                                    </Switch>
+                                </div>
+                            </BrowserRouter>
                         }
 
-                        {!this.canShowCards() &&
+                        {!this.canShowContent() &&
                             <div className="info-content">
                                 {this.props.healthCheck.loading  &&
                                     <CircularProgress disableShrink />
