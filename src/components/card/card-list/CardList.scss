@@ -1,3 +1,7 @@
+@import '../../../assets/style/shared-styles.scss';
+
+@include animateOpacity(showing);
+
 .card-list {
     height: 85vh;
     padding: 1.5vh 0;
@@ -6,4 +10,6 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+
+    animation: showing 1s ease;
 }

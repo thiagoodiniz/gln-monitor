@@ -46,8 +46,6 @@
         // flex-grow: 1;/
 
         &--input-container {
-            @include animateWidth(slide, 75%, 100%);
-
             width: 100%;
             margin-left: auto;
             animation: slide 1s ease;

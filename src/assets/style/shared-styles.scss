@@ -6,8 +6,15 @@ $secondaryBlue: #1490fc;
 
 // Animations
 @mixin animateWidth($name, $from, $to) {
-    @keyframes #{$name} {
-      0% {width: $from; opacity: 0;}
-      100% {width: $to; opacity: 1;}
-    }
-  }
+	@keyframes #{$name} {
+		0% {width: $from; opacity: 0;}
+		100% {width: $to; opacity: 1;}
+	}
+}
+
+@mixin animateOpacity($name) {
+	@keyframes #{$name} {
+		0% {opacity: 0;}
+		100% {opacity: 1;}
+	}
+}

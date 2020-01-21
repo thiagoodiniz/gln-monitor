@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.scss';
 import {Provider} from 'react-redux';
 import store from './store';
 import Home from './components/home/Home';
