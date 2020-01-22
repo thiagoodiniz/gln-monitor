@@ -9,8 +9,12 @@
     border-radius: 2px;
     text-align: start;
     background-color: #fff;
-    overflow: auto;
+    overflow: hidden;
     animation: showing 1s ease;
+
+    @media (orientation: landscape) {
+        max-height: 80vh;
+    }
 
     &__header {
         padding: 5vh 5vw 2vh 5vw;
