@@ -17,13 +17,20 @@ class Detail extends Component {
 		super(props);
 
 		const item = this.props.healthCheck.find(item => item[this.cardType]);
+
+		let dataToTable = Object.values(item)[1];
+		dataToTable = dataToTable.map((item, idx) => {
+			return {
+				...item,
+				key: idx, // Each item in the table needs to have a key
+			}
+		});
+
 		this.state = {
 			title: this.possibleItems[this.cardType].title,
 			content: Object.values(item)[0],
-			data: Object.values(item)[1],
+			data: dataToTable,
 		}
-
-		console.log('LOCAL STATE', this.state);
 	}
 
 	render(){
@@ -45,8 +52,8 @@ class Detail extends Component {
 					</header>
 
 					<Table pagination={false} dataSource={this.state.data}>
-						{Object.keys(this.possibleItems[this.cardType].details).map(item => 
-							<Column align="center" title={this.possibleItems[this.cardType].details[item]} dataIndex={item}  key={item}  />
+						{Object.keys(this.possibleItems[this.cardType].details).map((item) => 
+							<Column align="center" title={this.possibleItems[this.cardType].details[item]} dataIndex={item} key={item} />
 						)
 						}
 					</Table>
