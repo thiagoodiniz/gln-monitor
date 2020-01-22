@@ -16,6 +16,10 @@
         max-height: 80vh;
     }
 
+    @media (min-width:800px) {
+        width: 90%;
+    }
+
     &__header {
         padding: 5vh 5vw 2vh 5vw;
         display: flex;
@@ -74,6 +78,6 @@
     font-size: 12px;
 }
 
-.ant-table-thead > tr > th {
-    height: 75px;
+.ant-table-tbody>tr>td, .ant-table-thead>tr>th  {
+    height: 70px;
 }
