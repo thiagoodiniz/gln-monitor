@@ -3,7 +3,7 @@
 @include animateOpacity(showing);
 
 .detail-card {
-    width: 90%;
+    max-width: 75vw;
     max-height: 85vh;
     margin: 20px auto;
     border-radius: 2px;
@@ -72,4 +72,8 @@
 
 .ant-table-fixed {
     font-size: 12px;
+}
+
+.ant-table-thead > tr > th {
+    height: 75px;
 }

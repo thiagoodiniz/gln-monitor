@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import './Detail.scss';
 import { Table } from "antd";
-import Column from "antd/lib/table/Column";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { healthCheck } from '../../core/healthCheck';
@@ -34,31 +33,42 @@ class Detail extends Component {
 	}
 
 	render(){
-			return(
-				<section className="detail-card" >
+		const columns = [];
+		
+		Object.keys(this.possibleItems[this.cardType].details).map((item, idx) => 
+			columns.push({
+				title: this.possibleItems[this.cardType].details[item],
+				width: idx < 1 ? 100 : 150,
+				dataIndex: item,
+				key: item,
+				fixed: idx < 1 ? 'left' : '',
+			})
+		);
+		return(
+			<section className="detail-card" >
 
-					<header className="detail-card__header">
-						<div className="detail-card__header--item-info item-info">
-							<span className="item-info--content">{ this.state.content }</span>
-							<span className="item-info--title">{ this.state.title }</span>
-						</div>
+				<header className="detail-card__header">
+					<div className="detail-card__header--item-info item-info">
+						<span className="item-info--content">{ this.state.content }</span>
+						<span className="item-info--title">{ this.state.title }</span>
+					</div>
 
-						<div className="detail-card__header--config config">
-							<span className="config__settings-button">
-								<FontAwesomeIcon icon={ faCog } size="sm" />
-								<span className="config__settings-button--text">Configuration</span>
-							</span>
-						</div>
-					</header>
+					<div className="detail-card__header--config config">
+						<span className="config__settings-button">
+							<FontAwesomeIcon icon={ faCog } size="sm" />
+							<span className="config__settings-button--text">Configuration</span>
+						</span>
+					</div>
+				</header>
 
-					<Table pagination={false} dataSource={this.state.data} size="small" scroll={{ x: '90%', y: '80vh' }} useFixedHeader={true} >
-						{Object.keys(this.possibleItems[this.cardType].details).map((item) => 
-							<Column align="center" title={this.possibleItems[this.cardType].details[item]} dataIndex={item} key={item} />
-						)}
-					</Table>
-					
-				</section>
-			);
+				<Table pagination={false} dataSource={this.state.data} scroll={{ x: 1500, y: 300 }} tableLayout="fixed" useFixedHeader={true} columns={columns}>
+					{/* {Object.keys(this.possibleItems[this.cardType].details).map((item) => 
+						<Column title={this.possibleItems[this.cardType].details[item]} dataIndex={item} key={item} />
+					)} */}
+				</Table>
+				
+			</section>
+		);
 	}
 
 
