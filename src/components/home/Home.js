@@ -31,19 +31,19 @@ class Home extends Component {
                     <SideMenu></SideMenu>
 
                     <div className="home__content--center">
-                        <Header></Header>
-
-                        {this.canShowContent() &&
-                            <BrowserRouter>
+                        
+                            <BrowserRouter >
                                 <div>
-                                    <Switch>
-                                        <Redirect exact from="/" to="/list" />
-                                        <Route path="/list" component={ CardList } />
-                                        <Route path="/detail/:cardType" component={ Detail } />
-                                    </Switch>
+                                    <Header />
+                                    {this.canShowContent() &&
+                                        <Switch>
+                                            <Redirect exact from="/" to="/list" />
+                                            <Route path="/list" component={ CardList } />
+                                            <Route path="/detail/:cardType" component={ Detail } />
+                                        </Switch>
+                                    }
                                 </div>
                             </BrowserRouter>
-                        }
 
                         {!this.canShowContent() &&
                             <div className="info-content">
@@ -69,7 +69,6 @@ class Home extends Component {
 const mapStateToProps = (state, ownProps) => ({
     healthCheck: state.healthCheck,
 });
-
 
 const mapDispatchToProps = dispatch => bindActionCreators(HealthCheckActions, dispatch);
 
