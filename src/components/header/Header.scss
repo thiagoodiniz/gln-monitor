@@ -64,7 +64,7 @@
 }
 
 
-.header > div:not(:last-child):not(:first-child) {
+.header > div:not(:last-child):not(.header__back) {
     margin-right: 0.5vw;
 }
 
