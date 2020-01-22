@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './Header.scss';
-import { faSearch, faBell, faCircle, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faBell, faCircle, faTimes, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { TextField } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
 
 class Header extends Component {
 
@@ -19,9 +20,25 @@ class Header extends Component {
         this.setState({[event.target.name]: event.target.value})
     }
 
+    canShowBackButton = () => {
+        return this.props.location.pathname !== '/list';
+    }
+
+    goBack = () => {
+        this.props.history.goBack();
+    }
+
     render(){
         return(
             <div className="header">
+                
+                {this.canShowBackButton() && !this.state.isSearching && 
+                    <div className="header__back" onClick={ this.goBack }>
+                        <FontAwesomeIcon icon={ faChevronLeft } size="sm" />
+                        <span className="header__back--text">Back</span>
+                    </div>
+                }
+
                 <div className="header__search" style={{ flexGrow: this.state.isSearching ? 1 : 0}}>
                     {this.state.isSearching && 
                         <div className="header__search--input-container">
@@ -53,4 +70,4 @@ class Header extends Component {
     }
 } 
 
-export default Header;
+export default withRouter(Header);
