@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 class CardItem extends Component {
 
 	render(){
-		console.log(this.props.cardType)
 		return(
 			<div className="card">
 

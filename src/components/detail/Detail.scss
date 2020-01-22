@@ -1,5 +1,6 @@
 @import '../../assets/style/shared-styles.scss';
 
+@include animateOpacity(showing);
 
 .detail-card {
     width: 90%;
@@ -8,6 +9,7 @@
     border-radius: 2px;
     text-align: start;
     background-color: #fff;
+    animation: showing 1s ease;
 
     &__header {
         padding: 5vh 5vw 2vh 5vw;
