@@ -61,10 +61,12 @@ class Detail extends Component {
 					</div>
 				</header>
 
-				<Table pagination={false} dataSource={this.state.data} scroll={{ x: 1500, y: 300 }} tableLayout="fixed" useFixedHeader={true} columns={columns}>
-					{/* {Object.keys(this.possibleItems[this.cardType].details).map((item) => 
-						<Column title={this.possibleItems[this.cardType].details[item]} dataIndex={item} key={item} />
-					)} */}
+				<Table pagination={false} 
+					dataSource={this.state.data} 
+					scroll={{ x: 300, y: 300 }} 
+					size="middle" 
+					useFixedHeader={true} 
+					columns={columns}>
 				</Table>
 				
 			</section>
