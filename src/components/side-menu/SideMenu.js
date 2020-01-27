@@ -7,6 +7,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { connect } from 'react-redux';
 import { healthCheck } from '../../core/healthCheck'
+import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 class SideMenu extends Component {
 
@@ -56,7 +58,7 @@ class SideMenu extends Component {
 							</ListSubheader>
 
 							{this.props.healthCheck.apohealthcheck.map((item, index) =>
-								<ListItem key={index} className="side-menu-list__item" button onClick={this.toggleMenu}>
+								<ListItem key={index} className="side-menu-list__item" button onClick={this.onclickitem.bind(this, item)}>
 									<span className="side-menu-list__item--content">{ this.possibleItems[Object.keys(item)[0]].title }</span>
 								</ListItem>
 							)}
@@ -72,10 +74,18 @@ class SideMenu extends Component {
 		);
 	}
 
+	onclickitem = (link) => {
+		this.props.history.push(`/detail/${Object.keys(link)[0]}`);
+		this.toggleMenu();
+	}
 }
+
 
 const mapStateToProps = (state, ownProps) => ({
     healthCheck: state.healthCheck,
 });
 
-export default connect(mapStateToProps, null)(SideMenu);
+export default compose(
+	withRouter,
+	connect(mapStateToProps, null),
+)(SideMenu);

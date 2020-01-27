@@ -28,38 +28,38 @@ class Home extends Component {
         return (
             <div className="home">
                 <div className="home__content">
-                    <SideMenu></SideMenu>
+                    <BrowserRouter >
+                        <SideMenu></SideMenu>
 
-                    <div className="home__content--center">
-                        
-                            <BrowserRouter >
-                                <div>
-                                    <Header />
-                                    {this.canShowContent() &&
-                                        <Switch>
-                                            <Redirect exact from="/" to="/list" />
-                                            <Route path="/list" component={ CardList } />
-                                            <Route path="/detail/:cardType" component={ Detail } />
-                                        </Switch>
+                        <div className="home__content--center">
+                            
+                                    <div>
+                                        <Header />
+                                        {this.canShowContent() &&
+                                            <Switch>
+                                                <Redirect exact from="/" to="/list" />
+                                                <Route path="/list" component={ CardList } />
+                                                <Route path="/detail/:cardType" component={ Detail } />
+                                            </Switch>
+                                        }
+                                    </div>
+
+                            {!this.canShowContent() &&
+                                <div className="info-content">
+                                    {this.props.healthCheck.loading  &&
+                                        <CircularProgress disableShrink />
+                                    }
+
+                                    {this.props.healthCheck.error && 
+                                        <Alert variant="filled" severity="error">
+                                            An error occurred while trying to obtain the Health Check data. Try again later. 
+                                        </Alert>
                                     }
                                 </div>
-                            </BrowserRouter>
+                            }
+                        </div>
 
-                        {!this.canShowContent() &&
-                            <div className="info-content">
-                                {this.props.healthCheck.loading  &&
-                                    <CircularProgress disableShrink />
-                                }
-
-                                {this.props.healthCheck.error && 
-                                    <Alert variant="filled" severity="error">
-                                        An error occurred while trying to obtain the Health Check data. Try again later. 
-                                    </Alert>
-                                }
-                            </div>
-                        }
-                    </div>
-
+                    </BrowserRouter>
                 </div>
             </div>
         )

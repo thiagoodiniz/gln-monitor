@@ -63,7 +63,7 @@ class Detail extends Component {
 
 				<Table pagination={false} 
 					dataSource={this.state.data} 
-					scroll={{ x: 300, y: 300 }} 
+					scroll={{ x: 300, y: 500 }} 
 					size="middle" 
 					useFixedHeader={true} 
 					columns={columns}>
