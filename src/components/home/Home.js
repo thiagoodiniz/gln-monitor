@@ -10,6 +10,7 @@ import { CircularProgress } from "@material-ui/core";
 import Alert from '@material-ui/lab/Alert';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Detail from "../detail/Detail";
+import Configuration from "../configuration/Configuration";
 
 class Home extends Component {
 
@@ -40,6 +41,7 @@ class Home extends Component {
                                                 <Redirect exact from="/" to="/list" />
                                                 <Route path="/list" component={ CardList } />
                                                 <Route path="/detail/:cardType" component={ Detail } />
+                                                <Route path="/config/:cardType" component={ Configuration } />
                                             </Switch>
                                         }
                                     </div>

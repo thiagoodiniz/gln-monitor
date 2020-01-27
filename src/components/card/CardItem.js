@@ -15,9 +15,11 @@ class CardItem extends Component {
 				<div className="card__container">
 					<span className="card__container--header card-header" color="textSecondary">
 						<span>{this.props.title}</span>
-						<span className="card-header__settings-button">
-							<FontAwesomeIcon icon={faCog} size="sm" />
-						</span>
+							<span className="card-header__settings-button">
+								<Link to={`/config/${this.props.cardType}`}>
+									<FontAwesomeIcon icon={faCog} size="sm" />
+								</Link>
+							</span>
 					</span>
 					
 					<div className="card__container--content card-content">
