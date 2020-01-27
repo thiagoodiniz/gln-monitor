@@ -17,6 +17,14 @@ class Detail extends Component {
 
 		const item = this.props.healthCheck.find(item => item[this.cardType]);
 
+		this.state = {
+			title: this.possibleItems[this.cardType].title,
+			content: Object.values(item)[0],
+			data: this.getDataToTable(item),
+		}
+	}
+
+	getDataToTable = (item) => {
 		let dataToTable = Object.values(item)[1];
 		dataToTable = dataToTable.map((item, idx) => {
 			return {
@@ -25,10 +33,21 @@ class Detail extends Component {
 			}
 		});
 
-		this.state = {
-			title: this.possibleItems[this.cardType].title,
-			content: Object.values(item)[0],
-			data: dataToTable,
+		return dataToTable;
+	}
+
+
+
+	componentDidUpdate = (prevProps, prevState) => {
+		if(this.props.location.pathname !== prevProps.location.pathname) {
+			this.cardType = this.props.match.params.cardType;
+			const item = this.props.healthCheck.find(item => item[this.cardType]);
+			
+			this.setState({
+				title: this.possibleItems[this.cardType].title,
+				content: Object.values(item)[0],
+				data: this.getDataToTable(item),
+			});
 		}
 	}
 

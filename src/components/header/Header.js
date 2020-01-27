@@ -25,7 +25,8 @@ class Header extends Component {
     }
 
     goBack = () => {
-        this.props.history.goBack();
+        // this.props.history.goBack();
+        this.props.history.push('/list')
     }
 
     render(){
