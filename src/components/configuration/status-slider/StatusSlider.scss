@@ -1,0 +1,16 @@
+.status-slider {
+    &__title {
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+
+    &__subtitle {
+        width: 90%;
+        margin: 0 auto;
+        text-align: right;
+        font-size: 12px;
+        & > span:last-child {
+            margin-left: 2.5vw;
+        }
+    }
+}

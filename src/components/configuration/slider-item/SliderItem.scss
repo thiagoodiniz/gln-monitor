@@ -1,0 +1,57 @@
+.slider-item { 
+    display: flex;
+    width: 90%;
+    align-items: center;
+    margin: 2vh auto;
+
+    &__text {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        width: 60px;
+
+        &--status {
+            margin-right: 5px;
+            margin-left: 6px;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+        }
+    }
+
+    &__slider {
+        width: 60%;
+        margin: 0 1vw !important;
+    }
+
+    &__inputs {
+        display: flex;
+        margin-right: 0.5vw;
+
+        &--amount {
+            width: 69px !important;
+            margin: 0 2.5vw 0 1vw !important;
+            padding: 4px 6px !important;
+        }
+
+    }
+}
+
+.status-green {
+    background: #52C41A 0% 0% no-repeat padding-box;
+    border: 2px solid rgba(82,196,26,0.2);
+}
+.status-yellow {
+    background: #FF9E00 0% 0% no-repeat padding-box;
+    border: 2px solid rgba(255, 154, 0, 0.2);
+}
+.status-red {
+    background: #FF0000 0% 0% no-repeat padding-box;
+    border: 2px solid rgba(255,0,0,0.2);
+}
+
+
+
+.ant-slider-dot {
+    display: none;
+}

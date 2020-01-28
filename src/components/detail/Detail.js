@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { healthCheck } from '../../core/healthCheck';
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Detail extends Component {
 
@@ -35,8 +36,6 @@ class Detail extends Component {
 
 		return dataToTable;
 	}
-
-
 
 	componentDidUpdate = (prevProps, prevState) => {
 		if(this.props.location.pathname !== prevProps.location.pathname) {
@@ -73,10 +72,12 @@ class Detail extends Component {
 					</div>
 
 					<div className="detail-card__header--config config">
-						<span className="config__settings-button">
-							<FontAwesomeIcon icon={ faCog } size="sm" />
-							<span className="config__settings-button--text">Configuration</span>
-						</span>
+						<Link to={`/config/${this.cardType}`}>
+							<span className="config__settings-button">
+								<FontAwesomeIcon icon={ faCog } size="sm" />
+								<span className="config__settings-button--text">Configuration</span>
+							</span>
+						</Link>
 					</div>
 				</header>
 
