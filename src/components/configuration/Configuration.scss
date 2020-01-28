@@ -8,7 +8,7 @@
     border-radius: 2px;
     text-align: start;
     background-color: #fff;
-    overflow: hidden;
+    overflow: auto;
     animation: showing 1s ease;
 
     @media (orientation: landscape) {
@@ -30,7 +30,7 @@
 
         @media (min-width:980px) {
             margin: 0 auto;
-            width: 35vw;
+            width: 40vw;
         }
 
         &--actions {
