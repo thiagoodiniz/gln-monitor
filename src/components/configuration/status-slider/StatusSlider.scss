@@ -5,12 +5,17 @@
     }
 
     &__subtitle {
-        width: 90%;
-        margin: 0 auto;
-        text-align: right;
-        font-size: 12px;
-        & > span:last-child {
-            margin-left: 2.5vw;
+        display: none;
+
+        @media (min-width:980px) {
+            display: block;
+            width: 90%;
+            margin: 0 auto;
+            text-align: right;
+            font-size: 12px;
+            & > span:last-child {
+                margin-left: 2.5vw;
+            }
         }
     }
 }

@@ -9,6 +9,7 @@
     text-align: start;
     background-color: #fff;
     overflow: auto;
+    padding: 20px;
     animation: showing 1s ease;
 
     @media (orientation: landscape) {
@@ -34,7 +35,8 @@
         }
 
         &--actions {
-            margin: 3vh 0  0 1.7vw;
+            width: 90%;
+            margin: 3vh auto 0 auto;
         }
     }
 

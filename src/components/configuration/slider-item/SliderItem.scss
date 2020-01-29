@@ -3,12 +3,24 @@
     width: 90%;
     align-items: center;
     margin: 2vh auto;
+    flex-wrap: wrap;
+
+    @media (min-width:980px) {
+        flex-wrap: unset;
+    }
 
     &__text {
         display: flex;
         align-items: center;
         font-size: 12px;
         width: 60px;
+        order: 1;
+        margin-bottom: 5px;
+
+        @media (min-width:980px) {
+            order: unset;
+            margin-bottom: unset;
+        }
 
         &--status {
             margin-right: 5px;
@@ -20,22 +32,54 @@
     }
 
     &__slider {
-        width: 60%;
+        width: 100%;
         margin: 0 1vw !important;
+        order: 3;
+        
+        @media (min-width:980px) {
+            width: 60%;
+            order: unset;
+        }
     }
 
     &__inputs {
         display: flex;
-        margin-right: 0.5vw;
+        margin-left: 6px;
+        margin-bottom: 6px;
+        order: 2;
 
-        &--amount {
-            width: 69px !important;
-            margin: 0 2.5vw 0 1vw !important;
-            padding: 4px 6px !important;
+        @media (min-width:980px) {
+            margin: 0 0.5vw 0 0;
+            order: unset;
         }
-
     }
 }
+
+.amount {
+    &__title {
+        font-size: 12px;
+        // margin-right: 1vw;
+        @media (min-width:980px) {
+            display: none;
+        }
+    }
+    &__input {
+        width: 69px !important;
+        margin: 0 2.5vw 0 1vw !important;
+        padding: 4px 6px !important;
+    }
+}
+
+.notify-item {
+    &__title {
+        font-size: 12px;
+        margin-right: 1vw;
+        @media (min-width:980px) {
+            display: none;
+        }
+    }
+}
+
 
 .status-green {
     background: #52C41A 0% 0% no-repeat padding-box;
