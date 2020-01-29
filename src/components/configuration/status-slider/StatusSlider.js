@@ -1,44 +1,114 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './StatusSlider.scss';
 import { Divider } from 'antd';
 import { SliderItem } from '../slider-item/SliderItem';
-import PropTypes from 'prop-types';
 
-export const StatusSlider = (props) => {
-    return (
-        <section className="status-slider">
+export class StatusSlider extends Component {
 
-            <h5 className="status-slider__title">{ props.title }</h5>
+    state = {
+        title: 'Status',
+        amountTitle: 'Amount',
+		greenSlider: 30,
+		yellowSlider: 0,
+		redSlider: 20,
+		sliders: [],
+	}
 
-            <div className="status-slider__subtitle">
-                <span>{ props.amountTitle }</span>
-                <span>Notify</span>
-            </div>
+	componentDidMount = () => {
+		this.setState({
+			sliders: this.getSliders(),
+		})
+	}
 
-            <Divider style={{ margin: '0'}} />
-            <div className="status-slider__content">
-                
-                <div className="status-slider__content--sliders">
-                    { props.sliders.map((slider, index) => 
-                        <div key={index}>
-                            <SliderItem title={slider.title} statusColor={slider.statusColor} onChange={ slider.onChange } value={ slider.value } marks={slider.marks}/>
-                            {index < props.sliders.length -1 && 
-                                <Divider dashed={true} style={{ margin: '0'}} />
-                            }
-                        </div>
-                    )}
+	getSliders = () => {
+		return [
+			{
+				title: 'OK',
+				statusColor: 'green',
+				value: this.state.greenSlider,
+				onChange: (newValue) => this.onChangeSlider('greenSlider', newValue)
+			},
+			{
+				title: 'Yellow',
+				statusColor: 'yellow',
+				value: this.state.yellowSlider,
+				marks: {
+					[this.state.greenSlider]: {
+						style: {
+							border: '1px dashed #52C41A',
+							width: '1px',
+							height: '9px',
+							position: 'relative',
+							top: '-18px',
+						},
+						 label: ' '
+					}
+				},
+				onChange: (newValue) => this.onChangeSlider('yellowSlider', newValue)
+			},
+			{
+				title: 'Red',
+				statusColor: 'red',
+				value: this.state.redSlider,
+				marks: {
+					[this.state.yellowSlider]: {
+						style: {
+							border: '1px dashed #FF9E00',
+							width: '1px',
+							height: '9px',
+							position: 'relative',
+							top: '-18px',
+						},
+						 label: ' '
+					}
+				},
+				onChange: (newValue) => this.onChangeSlider('redSlider', newValue)
+	
+			}
+		]
+	}
+
+	onChangeSlider = (sliderChanged, newValue) => {
+		this.setState({
+			[sliderChanged]: newValue,
+			sliders: this.getSliders(),
+		});
+	}
+
+    render() {
+        return (
+            <section className="status-slider">
+    
+                <h5 className="status-slider__title">{ this.state.title }</h5>
+    
+                <div className="status-slider__subtitle">
+                    <span>{ this.state.amountTitle }</span>
+                    <span>Notify</span>
                 </div>
-
-            </div>
-        </section>
-    );
-}
-
-StatusSlider.propTypes = {
-	title: PropTypes.string.isRequired,
-    amountTitle: PropTypes.string.isRequired,
-    sliders: PropTypes.arrayOf(PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        statusColor: PropTypes.string.isRequired,
-    })).isRequired
+    
+                <Divider style={{ margin: '0'}} />
+                <div className="status-slider__content">
+                    
+                    <div className="status-slider__content--sliders">
+                        { this.state.sliders.map((slider, index) => 
+                            <div key={index}>
+                                <SliderItem 
+                                    title={slider.title} 
+                                    statusColor={slider.statusColor} 
+                                    onChange={ slider.onChange } 
+                                    value={ slider.value } 
+                                    marks={slider.marks}
+                                    amountTitle={this.state.amountTitle}
+                                />
+                                {index < this.state.sliders.length -1 && 
+                                    <Divider dashed={true} style={{ margin: '0'}} />
+                                }
+                            </div>
+                        )}
+                    </div>
+    
+                </div>
+            </section>
+        );
+    }
 }

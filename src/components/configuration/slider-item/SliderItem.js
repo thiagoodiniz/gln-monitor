@@ -13,8 +13,14 @@ export const SliderItem = (props) => {
             <Slider value={props.value} marks={props.marks} onChange={props.onChange} className="slider-item__slider"></Slider>
 
             <div className="slider-item__inputs">
-                <Input size="small" className="slider-item__inputs--amount"/>
-                <Checkbox></Checkbox>
+                <div className="slider-item__inputs--amount amount">
+                    <span className="amount__title">{ props.amountTitle }</span>
+                    <Input size="small" className="amount__input"/>
+                </div>
+                <div className="slider-item__inputs--notify-item notify-item">
+                    <span className="notify-item__title">Notify</span>
+                    <Checkbox></Checkbox>
+                </div>
             </div>
         </div>
     );
