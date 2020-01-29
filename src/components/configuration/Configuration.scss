@@ -9,7 +9,7 @@
     text-align: start;
     background-color: #fff;
     overflow: auto;
-    padding: 20px;
+    padding: 20px 0;
     animation: showing 1s ease;
 
     @media (orientation: landscape) {
@@ -28,10 +28,12 @@
 
     &__content {
         margin: 0 1vw;
+        padding: 0 20px;
 
         @media (min-width:980px) {
             margin: 0 auto;
             width: 40vw;
+            padding: 0;
         }
 
         &--actions {
