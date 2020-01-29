@@ -2,7 +2,7 @@
 @include animateOpacity(showing);
 
 .config-card {
-    max-width: 64vw;
+    max-width: 75vw;
     height: 85vh;
     margin: 20px auto;
     border-radius: 2px;
@@ -22,7 +22,7 @@
 
     &__header {
         font-weight: bold;
-        padding: 4vh 0 0 5vw;
+        padding: 5px 0 0 5vw;
         font-size: 14px;
     }
 
