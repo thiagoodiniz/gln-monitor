@@ -45,16 +45,15 @@
     }
 
     &__list {
-        width: 90%;
-        margin: 2vh auto;
+        margin: 2vh 0;
     }
 }
 
 .list-item {
     display: flex;
     justify-content: space-between;
-    margin-right: 2vw;
-    margin-top: 1vh;
+    width: 90%;
+    margin: 0 auto;
     animation: showing 0.5s ease;
 
     &__text {

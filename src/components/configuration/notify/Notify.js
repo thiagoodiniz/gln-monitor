@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Notify.scss';
-import { Input, Button } from "antd";
+import { Input, Button, Divider } from "antd";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -60,17 +60,26 @@ class Notify extends Component {
 	
 					<Button className="notify__form--add-btn" onClick={ this.onAddContactClick } disabled={ !this.state.email || !this.state.phoneNumber } type="primary">Add</Button>
 				</form>
+				{this.state.contactList.length > 0 && 
+					<Divider dashed={true} style={{ margin: '10px 0'}} />
+				}
 				<div className="notify__list">
 					{this.state.contactList.map((contact, index) =>
-						<div key={index} className="notify__list--item list-item">
-							<span className="list-item__text">{ contact.email }</span>
-							<span className="list-item__text">{ contact.phoneNumber}</span>
-							<FontAwesomeIcon 
-								style={{ color: '#9dcffd', cursor: 'pointer' }} 
-								icon={ faTrashAlt } 
-								size="sm" 
-								onClick={ this.removeContact.bind(this, index)}
-							/>
+						<div key={index} >
+							<div className="notify__list--item list-item">
+								<span className="list-item__text">{ contact.email }</span>
+								<span className="list-item__text">{ contact.phoneNumber}</span>
+								<FontAwesomeIcon 
+									style={{ color: '#9dcffd', cursor: 'pointer' }} 
+									icon={ faTrashAlt } 
+									size="sm" 
+									onClick={ this.removeContact.bind(this, index)}
+								/>
+
+							</div>
+							{this.state.contactList.length > index + 1 && 
+								<Divider dashed={true} style={{ margin: '10px 0'}} />
+							}
 						</div>
 					)}
 				</div>
