@@ -4,15 +4,21 @@
     width: 238px;
 	min-height: 150px;
 	max-height: 220px;
-	margin: 10px;
+	margin: 12px;
 	border-radius: 2px;
 	text-align: start;
 	background-color: #fff;
 	padding: 14px 14px 5px 14px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+    justify-content: space-between;
 
+    @media (min-width:1024px) {
+        margin: 12px 2%;
+        width: 28%;
+        height: 20vh;
+    }
+    
     &__container {
 
         &--header {

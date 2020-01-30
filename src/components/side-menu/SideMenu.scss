@@ -3,10 +3,10 @@
 
 .side-menu {
     @media (min-width:800px) {
-        width: 8%;
+        width: 7%;
     };
 
-    width: 17vw;
+    width: 8vw;
     font-size: 14px;
     font-weight: 500;
     padding: 3vh 0;
@@ -16,9 +16,6 @@
     cursor: pointer;
 
     &__top {
-        margin: 0 1vw 3vh 2vw;
-		display: flex;
-        justify-content: space-between;
         
         &--tachometer-icon {
             margin-left: 2vw; 
@@ -49,8 +46,9 @@
         flex-grow: 1; 
         display: flex;
         justify-content: space-between;
-        margin-left: 1vw;
+        margin: 0 10px 15px 20px;
         align-items: center;
+        font-weight: bold;
 
         &--close-icon {
             cursor: pointer;

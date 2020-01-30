@@ -30,11 +30,9 @@ class SideMenu extends Component {
 			<div className={`side-menu ${this.state.isMenuOpenned ? 'side-menu-openned' : ''}`} onClick={openMenu}>
 
 				<div className="side-menu__top">
-					<span >GLN</span>
-
 					{this.state.isMenuOpenned &&
 						<div className="side-menu-openned__top">
-							<span>DASH</span>
+							<span>GLN</span>
 							<FontAwesomeIcon className="side-menu-openned__top--close-icon" onClick={this.toggleMenu} icon={faBars} />
 						</div>
 					}
