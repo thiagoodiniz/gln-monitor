@@ -3,13 +3,11 @@ import './Detail.scss';
 import { Table } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
-import { healthCheck } from '../../core/healthCheck';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { getCardTitle, getColumns } from "../../core/healthCheck-config-db";
 
 class Detail extends Component {
-
-	possibleItems = healthCheck;
 
 	cardType = this.props.match.params.cardType;
 	
@@ -19,7 +17,7 @@ class Detail extends Component {
 		const item = this.props.healthCheck.find(item => item[this.cardType]);
 
 		this.state = {
-			title: this.possibleItems[this.cardType].title,
+			title: getCardTitle(this.cardType),
 			content: Object.values(item)[0],
 			data: this.getDataToTable(item),
 		}
@@ -43,7 +41,7 @@ class Detail extends Component {
 			const item = this.props.healthCheck.find(item => item[this.cardType]);
 			
 			this.setState({
-				title: this.possibleItems[this.cardType].title,
+				title: getCardTitle(this.cardType),
 				content: Object.values(item)[0],
 				data: this.getDataToTable(item),
 			});
@@ -53,9 +51,10 @@ class Detail extends Component {
 	render(){
 		const columns = [];
 		
-		Object.keys(this.possibleItems[this.cardType].details).map((item, idx) => 
+		const itemColums = getColumns(this.cardType)
+		Object.keys(itemColums).map((item, idx) => 
 			columns.push({
-				title: this.possibleItems[this.cardType].details[item],
+				title: itemColums[item],
 				width: idx < 1 ? 100 : 150,
 				dataIndex: item,
 				key: item,

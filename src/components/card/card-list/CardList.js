@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import CardItem from '../CardItem';
 import './CardList.scss';
 import { connect } from 'react-redux';
-import { healthCheck } from '../../../core/healthCheck'
+import { healthCheck, getCardTitle } from '../../../core/healthCheck-config-db'
 
 class CardList extends Component {
 
@@ -16,7 +16,7 @@ class CardList extends Component {
                 && this.props.healthCheck.apohealthcheck.map((item, index) =>                 
                     <CardItem 
                         key= {index} 
-                        title= { this.possibleItems[Object.keys(item)[0]].title } 
+                        title= {  getCardTitle(Object.keys(item)[0]) } 
                         content= { Object.values(item)[0]}
                         cardType= { Object.keys(item)[0]}
                     >

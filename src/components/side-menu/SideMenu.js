@@ -6,17 +6,15 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { connect } from 'react-redux';
-import { healthCheck } from '../../core/healthCheck'
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
+import { getCardTitle } from '../../core/healthCheck-config-db';
 
 class SideMenu extends Component {
 
 	state = {
         isMenuOpenned: false,
 	}
-
-	possibleItems = healthCheck;
 
 	toggleMenu = () => {
         this.setState({ isMenuOpenned: !this.state.isMenuOpenned });
@@ -57,7 +55,7 @@ class SideMenu extends Component {
 
 							{this.props.healthCheck.apohealthcheck.map((item, index) =>
 								<ListItem key={index} className="side-menu-list__item" button onClick={this.onclickitem.bind(this, item)}>
-									<span className="side-menu-list__item--content">{ this.possibleItems[Object.keys(item)[0]].title }</span>
+									<span className="side-menu-list__item--content">{ getCardTitle(Object.keys(item)[0]) }</span>
 								</ListItem>
 							)}
 						</List>
