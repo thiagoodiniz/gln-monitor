@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import './Configuration.scss';
 import { Divider, Button } from "antd";
 import Notify from "./notify/Notify";
-import { StatusSlider } from "./status-slider/StatusSlider";
+// import { StatusSlider } from "./status-slider/StatusSlider";
 import { ComparisonBase } from "./comparison-base/ComparisonBase";
+import { NumberOfDumps } from "./number-of-dumps/NumberOfDumps";
+import { MemoryStatus } from "./memory-status/MemoryStatus";
 
 class Configuration extends Component {
 
@@ -19,7 +21,9 @@ class Configuration extends Component {
 
 					<ComparisonBase />
 
-					<StatusSlider />
+					<NumberOfDumps />
+					
+					<MemoryStatus />
 					
 					<Notify />
 					

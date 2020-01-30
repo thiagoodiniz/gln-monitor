@@ -1,4 +1,4 @@
-.status-slider {
+.slider-controller {
     &__title {
         font-weight: bold;
         margin-bottom: 12px;
@@ -8,12 +8,12 @@
         display: none;
 
         @media (min-width:980px) {
-            display: block;
+            display: flex;
             width: 90%;
             margin: 0 auto;
-            text-align: right;
+            justify-content: space-between;
             font-size: 12px;
-            & > span:last-child {
+            &--right > span:last-child {
                 margin-left: 2.5vw;
             }
         }
