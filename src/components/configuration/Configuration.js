@@ -3,6 +3,7 @@ import './Configuration.scss';
 import { Divider, Button } from "antd";
 import Notify from "./notify/Notify";
 import { StatusSlider } from "./status-slider/StatusSlider";
+import { ComparisonBase } from "./comparison-base/ComparisonBase";
 
 class Configuration extends Component {
 
@@ -15,6 +16,9 @@ class Configuration extends Component {
 				<Divider style={{ margin: '5px 0 24px 0' }} />	
 
 				<div className="config-card__content">
+
+					<ComparisonBase />
+
 					<StatusSlider />
 					
 					<Notify />
