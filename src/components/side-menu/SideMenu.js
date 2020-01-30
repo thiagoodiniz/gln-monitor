@@ -8,7 +8,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
-import { getCardTitle } from '../../core/healthCheck-config-db';
+import { getCardTitle, getConfig } from '../../core/healthCheck-config-db';
 
 class SideMenu extends Component {
 
@@ -70,8 +70,13 @@ class SideMenu extends Component {
 		);
 	}
 
-	onclickitem = (link) => {
-		this.props.history.push(`/detail/${Object.keys(link)[0]}`);
+	onclickitem = (clickedItem) => {
+		const cardType = Object.keys(clickedItem)[0];
+		if(getConfig(cardType).hideCardOptions){
+			return;
+		}
+
+		this.props.history.push(`/detail/${ cardType }`);
 		this.toggleMenu();
 	}
 }

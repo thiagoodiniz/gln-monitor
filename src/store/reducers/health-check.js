@@ -1,4 +1,5 @@
 import { Types } from '../actions/health-check'
+import { sortCards } from '../../core/healthCheck-config-db';
 
 const INITIAL_STATE = {
     loading: false,
@@ -15,8 +16,9 @@ export default function healthCheck(state=INITIAL_STATE, action){
             }
         
         case Types.SUCCESS:
+            const sortedApohealthheck = sortCards(action.apohealthcheck);
             return {
-                apohealthcheck: action.apohealthcheck,
+                apohealthcheck: sortedApohealthheck,
                 loading: false,
                 error: false,
             }

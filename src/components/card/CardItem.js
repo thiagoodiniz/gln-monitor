@@ -5,8 +5,11 @@ import { faCog, faCircle } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { getConfig } from '../../core/healthCheck-config-db';
 
 class CardItem extends Component {
+
+	hideCardOptions = getConfig(this.props.cardType).hideCardOptions;
 
 	render(){
 		return(
@@ -16,9 +19,11 @@ class CardItem extends Component {
 					<span className="card__container--header card-header" color="textSecondary">
 						<span>{this.props.title}</span>
 							<span className="card-header__settings-button">
-								<Link to={`/config/${this.props.cardType}`}>
-									<FontAwesomeIcon icon={faCog} size="sm" />
-								</Link>
+								{!this.hideCardOptions &&
+									<Link to={`/config/${this.props.cardType}`}>
+										<FontAwesomeIcon icon={faCog} size="sm" />
+									</Link>
+								}
 							</span>
 					</span>
 					
@@ -57,9 +62,11 @@ class CardItem extends Component {
 						</div>
 
 						<div className="card__footer--moreDetails">
-							<Link to={`/detail/${this.props.cardType}`}>
-								<span>More Details</span>
-							</Link>
+							{!this.hideCardOptions &&
+								<Link to={`/detail/${this.props.cardType}`}>
+									<span>More Details</span>
+								</Link>
+							}
 						</div>
 					</div>
 				</div>

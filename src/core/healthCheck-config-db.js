@@ -1,5 +1,5 @@
 
-export const healthCheck = {
+const healthCheck = {
     n_dumps: {
         title: 'Number of dumps (ST22)',
         details: {
@@ -12,6 +12,9 @@ export const healthCheck = {
                 program_name: 'Program Name',
                 include_name: 'Include Name',
             }
+        },
+        config: {
+            order: 4,
         }
     }, 
     n_queye: {
@@ -26,15 +29,22 @@ export const healthCheck = {
                 system: 'System',
                 flow: 'Flow',
             }
+        },
+        config: {
+            order: 3,
         }
     },
     lc_status: {
         title: 'Live Cache status (LC10)',
         details: {
             columns: {
-                lc_name: '',
-                lc_state: ''
+                // lc_name: '',
+                // lc_state: ''
             }
+        },
+        config: {
+            hideCardOptions: true,
+            order: 1,
         }
     },
     memory_consumption: {
@@ -50,6 +60,9 @@ export const healthCheck = {
                 // session_type: '',
                 // priority: '',
             }
+        },
+        config: {
+            order: 7,
         }
     },
     job_process: {
@@ -63,6 +76,9 @@ export const healthCheck = {
                 report: 'Report',
                 user: 'User name',
             }
+        },
+        config: {
+            order: 8,
         }
     },
     lc_logarea: {
@@ -75,6 +91,9 @@ export const healthCheck = {
                 free_lamb: 'Free Log Area - Mb',
                 "free_la%": 'Free Log Area - %',
             }
+        },
+        config: {
+            order: 9,
         }
     },
     pchain_error: {
@@ -92,6 +111,9 @@ export const healthCheck = {
                 end_time: 'End Time',
                 duration: 'Duration',
             }
+        },
+        config: {
+            order: 2,
         }
     },
     pchain_tlimit: {
@@ -106,6 +128,9 @@ export const healthCheck = {
                 // Time Limit
                 // % Above Time Limit
             }
+        },
+        config: {
+            order: 5,
         }
     },
     pchain_stddev: {
@@ -121,10 +146,12 @@ export const healthCheck = {
                 std_deviation: 'Standard Deviation',
                 // #Of Deviation
             }
+        },
+        config: {
+            order: 6,
         }
     },
 }
-
 
 export function getColumns(cardType) {
     return healthCheck[cardType].details.columns;
@@ -132,4 +159,22 @@ export function getColumns(cardType) {
 
 export function getCardTitle(cardType) {
     return healthCheck[cardType].title;
+}
+
+export function getConfig(cardType) {
+    return healthCheck[cardType].config;
+}
+
+export function sortCards(apohealthcheck) {
+    return apohealthcheck.sort((a, b) => {
+        if(getCardOrder(Object.keys(a)[0]) < getCardOrder(Object.keys(b)[0])){
+            return -1;
+        } else {
+            return 1;
+        }
+    });
+}
+
+function getCardOrder(cardType) {
+    return healthCheck[cardType].config.order;
 }

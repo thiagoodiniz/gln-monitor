@@ -2,11 +2,9 @@ import React, {Component} from 'react';
 import CardItem from '../CardItem';
 import './CardList.scss';
 import { connect } from 'react-redux';
-import { healthCheck, getCardTitle } from '../../../core/healthCheck-config-db'
+import { getCardTitle } from '../../../core/healthCheck-config-db'
 
 class CardList extends Component {
-
-    possibleItems = healthCheck;
 
     render() {
         return(
