@@ -1,3 +1,9 @@
+export const configMenusEnum = {
+    MEMORY_STATUS: 'memoryStatus',
+    NUMBER_OF_DUMPS: 'numberOfDumps',
+    COMPARISON_BASE: 'comparisonBase',
+    NOTIFY: 'notify',
+}
 
 const healthCheck = {
     n_dumps: {
@@ -15,6 +21,10 @@ const healthCheck = {
         },
         config: {
             order: 4,
+            menus: [
+                configMenusEnum.NUMBER_OF_DUMPS, 
+                configMenusEnum.NOTIFY
+            ],
         }
     }, 
     n_queye: {
@@ -32,6 +42,9 @@ const healthCheck = {
         },
         config: {
             order: 3,
+            menus: [
+                configMenusEnum.NOTIFY
+            ],
         }
     },
     lc_status: {
@@ -45,6 +58,7 @@ const healthCheck = {
         config: {
             hideCardOptions: true,
             order: 1,
+            menus: [],
         }
     },
     memory_consumption: {
@@ -63,6 +77,10 @@ const healthCheck = {
         },
         config: {
             order: 7,
+            menus: [
+                configMenusEnum.MEMORY_STATUS, 
+                configMenusEnum.NOTIFY
+            ],
         }
     },
     job_process: {
@@ -79,6 +97,9 @@ const healthCheck = {
         },
         config: {
             order: 8,
+            menus: [
+                configMenusEnum.NOTIFY
+            ],
         }
     },
     lc_logarea: {
@@ -94,6 +115,9 @@ const healthCheck = {
         },
         config: {
             order: 9,
+            menus: [
+                configMenusEnum.NOTIFY
+            ],
         }
     },
     pchain_error: {
@@ -114,6 +138,9 @@ const healthCheck = {
         },
         config: {
             order: 2,
+            menus: [
+                configMenusEnum.NOTIFY
+            ],
         }
     },
     pchain_tlimit: {
@@ -131,6 +158,9 @@ const healthCheck = {
         },
         config: {
             order: 5,
+            menus: [
+                configMenusEnum.NOTIFY
+            ],
         }
     },
     pchain_stddev: {
@@ -149,6 +179,10 @@ const healthCheck = {
         },
         config: {
             order: 6,
+            menus: [
+                configMenusEnum.COMPARISON_BASE,
+                configMenusEnum.NOTIFY
+            ],
         }
     },
 }
@@ -177,4 +211,8 @@ export function sortCards(apohealthcheck) {
 
 function getCardOrder(cardType) {
     return healthCheck[cardType].config.order;
+}
+
+export function getConfigMenus(cardType) {
+    return healthCheck[cardType].config.menus;
 }
