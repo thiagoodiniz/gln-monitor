@@ -37,8 +37,23 @@
         }
 
         &--actions {
+            display: flex;
+            justify-content: space-between;
+
             width: 90%;
             margin: 3vh auto 0 auto;
+
+            @media (min-width:800px) {
+                width: 90%;
+                display: unset;
+            }
+
+            & > Button {
+                width: 45%;
+                @media (min-width:800px) {
+                    width: unset;
+                }
+            }
         }
     }
 
