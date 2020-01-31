@@ -6,11 +6,11 @@ import "./Home.scss";
 import { Creators as HealthCheckActions } from "../../store/actions/health-check";
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { CircularProgress } from "@material-ui/core";
 import Alert from '@material-ui/lab/Alert';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Detail from "../detail/Detail";
 import Configuration from "../configuration/Configuration";
+import { Spin } from "antd";
 
 class Home extends Component {
 
@@ -49,7 +49,7 @@ class Home extends Component {
                             {!this.canShowContent() &&
                                 <div className="info-content">
                                     {this.props.healthCheck.loading  &&
-                                        <CircularProgress disableShrink />
+                                        <Spin size="large" />
                                     }
 
                                     {this.props.healthCheck.error && 
