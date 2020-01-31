@@ -10,12 +10,23 @@ export const SliderItem = (props) => {
                 <div className={`slider-item__text--status status-${ props.slider.statusColor }`}></div>
                 <span>{ props.slider.title }</span>
             </div>
-            <Slider value={props.slider.value} marks={props.slider.marks} onChange={props.slider.onChange} className="slider-item__slider"></Slider>
+            <Slider 
+                value={typeof props.slider.value === 'number' ? props.slider.value : 0} 
+                marks={props.slider.marks} 
+                onChange={props.slider.onChange} 
+                className="slider-item__slider"
+            >
+            </Slider>
 
             <div className="slider-item__inputs">
                 <div className="slider-item__inputs--amount amount">
                     <span className="amount__title">{ props.amountTitle }</span>
-                    <Input value={props.slider.value} size="small" className="amount__input"/>
+                    <Input 
+                        value={props.slider.value} 
+                        onChange={e => props.slider.onChange(e.target.value)}
+                        size="small" 
+                        className="amount__input"
+                    />
                 </div>
                 <div className="slider-item__inputs--notify-item notify-item">
                     <span className="notify-item__title">Notify</span>
@@ -32,7 +43,7 @@ SliderItem.propTypes = {
         title: PropTypes.string.isRequired,
         statusColor: PropTypes.string.isRequired,
         onChange: PropTypes.func.isRequired,
-        value: PropTypes.number.isRequired,
+        value: PropTypes.number,
         marks: PropTypes.object
     }),
 }

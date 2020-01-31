@@ -3,19 +3,18 @@ import { SliderController } from '../slider-controller/SliderController';
 
 export class MemoryStatus extends Component {
 
+	greenSlider = 30;
+	yellowSlider = 0;
+	redSlider = 20;
+
     state = {
 		title: 'Status',
         amountTitle: 'Amount Mb',
-        greenSlider: 30,
-		yellowSlider: 0,
-		redSlider: 20,
 		sliders: [],
 	}
 
 	componentDidMount = () => {
-		this.setState({
-			sliders: this.getSliders(),
-		})
+		this.setState({ sliders: this.getSliders() });
 	}
 
 	getSliders = () => {
@@ -23,15 +22,15 @@ export class MemoryStatus extends Component {
 			{
 				title: 'OK',
 				statusColor: 'green',
-				value: this.state.greenSlider,
+				value: this.greenSlider,
 				onChange: (newValue) => this.onChangeSlider('greenSlider', newValue)
 			},
 			{
 				title: 'Yellow',
 				statusColor: 'yellow',
-				value: this.state.yellowSlider,
+				value: this.yellowSlider,
 				marks: {
-					[this.state.greenSlider]: {
+					[this.greenSlider]: {	
 						style: {
 							border: '1px dashed #52C41A',
 							width: '1px',
@@ -47,9 +46,9 @@ export class MemoryStatus extends Component {
 			{
 				title: 'Red',
 				statusColor: 'red',
-				value: this.state.redSlider,
+				value: this.redSlider,
 				marks: {
-					[this.state.yellowSlider]: {
+					[this.yellowSlider]: {
 						style: {
 							border: '1px dashed #FF9E00',
 							width: '1px',
@@ -63,14 +62,13 @@ export class MemoryStatus extends Component {
 				onChange: (newValue) => this.onChangeSlider('redSlider', newValue)
 	
 			}
-		]
+		];
 	}
-
 	onChangeSlider = (sliderChanged, newValue) => {
-		this.setState({
-			[sliderChanged]: newValue,
-			sliders: this.getSliders(),
-		});
+		if(!newValue) newValue = 0;
+
+		this[sliderChanged] = parseInt(newValue);		
+		this.setState({ sliders: this.getSliders() });
 	}
 
 	render() {

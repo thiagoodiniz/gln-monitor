@@ -20,15 +20,14 @@ export class NumberOfDumps extends Component {
 	}
 
 	onChangeSlider = (newValue) => {
+		if(!newValue) newValue = 0;
+
 		const sliders = this.state.sliders;
-		sliders[0].value = newValue;
+		sliders[0].value = parseInt(newValue);
+		
 		this.setState({ sliders });
 	}
 	
-	setDumps = (value) => {
-		this.setState({numberOfDumps: value});
-	}
-
 	render() {
 		return (
 			<SliderController 
