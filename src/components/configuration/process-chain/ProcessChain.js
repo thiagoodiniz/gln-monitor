@@ -45,6 +45,7 @@ class ProcessChain extends Component {
                             className="proc-chain__item--input"
                             value={ this.state.procChainID }
                             onChange={ this.handleChange }
+                            size="small" 
                         />
                     </div>
 
@@ -56,6 +57,7 @@ class ProcessChain extends Component {
                             className="proc-chain__item--input"
                             value={ this.state.busisnessArea }
                             onChange={ this.handleChange }
+                            size="small" 
                         />
                     </div>
 
@@ -65,6 +67,7 @@ class ProcessChain extends Component {
                             onClick={ this.onAddItemClick }
                             disabled={ !this.state.procChainID || !this.state.busisnessArea }
                             type="primary"
+                            size="small" 
                         >
                             Add
                         </Button>

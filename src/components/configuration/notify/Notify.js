@@ -35,7 +35,7 @@ class Notify extends Component {
 
 	render() {
 		return(
-			<div className="notify">
+			<section className="notify">
 				<h5 className="notify__title">Notify</h5>
 				<form className="notify__form">
 					<div className="notify__form--item">
@@ -45,6 +45,7 @@ class Notify extends Component {
 							onChange={ this.handleChange } 
 							value={ this.state.email } 
 							placeholder="Type an e-mail"
+							size="small" 
 						/>
 					</div>
 					<div className="notify__form--item">
@@ -54,6 +55,7 @@ class Notify extends Component {
 							onChange={ this.handleChange } 
 							value={ this.state.phoneNumber } 
 							placeholder="Type a phone number"
+							size="small" 
 						/>
 					</div>
 	
@@ -62,13 +64,14 @@ class Notify extends Component {
 						onClick={ this.onAddContactClick }
 						disabled={ !this.state.email || !this.state.phoneNumber }
 						type="primary"
+						size="small" 
 					>Add
 					</Button>
 				</form>
 
 				<List itemList={ this.state.contactList } onRemoveItem={ this.removeContact } />
 				
-			</div>
+			</section>
 		); 
 	}
 

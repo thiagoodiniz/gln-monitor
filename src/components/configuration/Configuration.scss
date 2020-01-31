@@ -3,7 +3,7 @@
 
 .config-card {
     max-width: 75vw;
-    height: 85vh;
+    height: 90vh;
     margin: 20px auto;
     border-radius: 2px;
     text-align: start;
@@ -13,7 +13,7 @@
     animation: showing 1s ease;
 
     @media (orientation: landscape) {
-        height: 80vh;
+        margin: 15px auto 0 auto;
     }
 
     @media (min-width:800px) {

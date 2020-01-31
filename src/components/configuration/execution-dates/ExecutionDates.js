@@ -23,12 +23,12 @@ class ExecutionDates extends Component {
 			<section className="exec-dates">
 				<div className="exec-dates__item">
 					<h5 className="exec-dates__item--title">Execution date from</h5>
-					<DatePicker className="exec-dates__item--date-input" value={ this.state.dateFrom } onChange={ this.onChangeDateFrom } />
+					<DatePicker className="exec-dates__item--date-input" size="small" value={ this.state.dateFrom } onChange={ this.onChangeDateFrom } />
 				</div>
 
 				<div className="exec-dates__item">
 					<h5 className="exec-dates__item--title">Execution date to</h5>
-					<DatePicker className="exec-dates__item--date-input" value={ this.state.dateTo } onChange={ this.onChangeDateTo } />
+					<DatePicker className="exec-dates__item--date-input" size="small"  value={ this.state.dateTo } onChange={ this.onChangeDateTo } />
 				</div>
 			</section>
 		);
