@@ -16,8 +16,8 @@ export const List = (props) => {
                     <div key={index} >
                         <div className="list__item">
                             {
-                                Object.keys(item).map((column) => 
-                                        <span className="list__item--text">{ item[column] }</span>
+                                Object.keys(item).map((column, index) => 
+                                    <span key={index} className="list__item--text">{ item[column] }</span>
                                 )
                             }
 
