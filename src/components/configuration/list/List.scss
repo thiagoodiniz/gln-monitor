@@ -1,0 +1,20 @@
+.list-container {
+    margin: 2vh 0;
+}
+
+.list {
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 85%;
+        margin-left: 6%;
+        animation: showing 0.5s ease;
+
+        &--text {
+            width: 42%;
+            font-size: 12px;
+            word-break: break-all;
+        }
+    }
+}

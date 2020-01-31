@@ -44,20 +44,4 @@
         }
     }
 
-    &__list {
-        margin: 2vh 0;
-    }
-}
-
-.list-item {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    margin: 0 auto;
-    animation: showing 0.5s ease;
-
-    &__text {
-        width: 42%;
-        font-size: 12px;
-    }
 }
