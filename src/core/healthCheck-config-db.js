@@ -2,6 +2,7 @@ export const configMenusEnum = {
     MEMORY_STATUS: 'memoryStatus',
     NUMBER_OF_DUMPS: 'numberOfDumps',
     COMPARISON_BASE: 'comparisonBase',
+    EXECUTION_DATES: 'executionDates',
     NOTIFY: 'notify',
 }
 
@@ -139,6 +140,7 @@ const healthCheck = {
         config: {
             order: 2,
             menus: [
+                configMenusEnum.EXECUTION_DATES,
                 configMenusEnum.NOTIFY
             ],
         }

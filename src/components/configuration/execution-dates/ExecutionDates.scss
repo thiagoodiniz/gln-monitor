@@ -1,0 +1,31 @@
+
+.exec-dates {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vh;
+    flex-wrap: wrap;
+
+    &__item {
+        width: 100%;
+
+        @media (min-width: 980px) {
+            width: 45%;
+        }
+
+        &--title {
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        &--date-input {
+            width: 100%;
+        }
+    }
+
+    &__item:first-child {
+        margin-bottom: 1vh;
+        @media (min-width: 980px) {
+         margin-bottom: unset;
+        }
+    }
+}
