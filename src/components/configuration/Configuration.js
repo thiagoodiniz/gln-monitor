@@ -9,6 +9,7 @@ import { MemoryStatus } from "./memory-status/MemoryStatus";
 import { getConfigMenus, configMenusEnum } from "../../core/healthCheck-config-db";
 import ExecutionDates from "./execution-dates/ExecutionDates";
 import ProcessChain from "./process-chain/ProcessChain";
+import ProcessChainStatus from "./process-chain-status/ProcessChainStatus";
 
 class Configuration extends Component {
 
@@ -34,7 +35,10 @@ class Configuration extends Component {
 					{this.state.menus.includes(configMenusEnum.PROCESS_CHAIN) && 
 						<ProcessChain />
 					}
-
+					
+					{this.state.menus.includes(configMenusEnum.PROCESS_CHAIN_STATUS) && 
+						<ProcessChainStatus />
+					}					
 
 					{this.state.menus.includes(configMenusEnum.COMPARISON_BASE) && 
 						<ComparisonBase />

@@ -2,6 +2,7 @@ import React from 'react';
 import './SliderController.scss';
 import { Divider } from 'antd';
 import { SliderItem } from '../slider-item/SliderItem';
+import PropTypes from 'prop-types';
 
 export const SliderController = (props) => {
 
@@ -42,4 +43,11 @@ export const SliderController = (props) => {
 			</div>
 		</section>
 	);
+}
+
+SliderController.propTypes = {
+	title: PropTypes.string.isRequired,
+	subtitle: PropTypes.string,
+	amountTitle: PropTypes.string,
+	sliders: PropTypes.array,
 }

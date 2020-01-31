@@ -4,6 +4,7 @@ export const configMenusEnum = {
     COMPARISON_BASE: 'comparisonBase',
     EXECUTION_DATES: 'executionDates',
     PROCESS_CHAIN: 'processChain',
+    PROCESS_CHAIN_STATUS: 'processChainStatus',
     NOTIFY: 'notify',
 }
 
@@ -143,6 +144,7 @@ const healthCheck = {
             menus: [
                 configMenusEnum.EXECUTION_DATES,
                 configMenusEnum.PROCESS_CHAIN,
+                configMenusEnum.PROCESS_CHAIN_STATUS,
                 configMenusEnum.NOTIFY
             ],
         }
